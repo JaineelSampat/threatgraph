@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scrollbar-color: #253039 #0b0f14;
+}
+
+::selection {
+  background-color: rgba(79, 182, 232, 0.25);
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  filter: invert(0.6);
+}

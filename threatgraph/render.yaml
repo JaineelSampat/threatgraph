@@ -1,0 +1,22 @@
+# Render blueprint for the ThreatGraph API.
+# Deploy: connect this repo on render.com -> "New Blueprint Instance".
+# Set COGNODB_URI / COGNODB_USERNAME / COGNODB_PASSWORD as secret env vars
+# in the Render dashboard rather than committing them here.
+services:
+  - type: web
+    name: threatgraph-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: COGNODB_URI
+        sync: false
+      - key: COGNODB_USERNAME
+        sync: false
+      - key: COGNODB_PASSWORD
+        sync: false
+      - key: COGNODB_DATABASE
+        value: neo4j
+      - key: CORS_ORIGINS
+        value: https://your-frontend.vercel.app
